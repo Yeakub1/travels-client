@@ -10,16 +10,13 @@ const SidebarAllLinks = () => {
 
   if (isLoading) {
     return (
-      <div className="  flex justify-center  items-center h-full">
         <Loading />
-      </div>
     );
   }
 
-  console.log(data?.data?.role, "dddddddddddddddddddddddddddddddddddd");
   return (
     <div>
-      <ul className="menu p-4   w-52 md:w-80 lg:w-80  xl:w-80 2xl:w-80   min-h-full bg-base-200 text-base-content">
+      <ul className="menu p-4 w-52 md:w-80 lg:w-80  xl:w-80 2xl:w-80 bg-base-200 text-base-content">
         <aside className="py-4 w-full md:block">
           <div className="sticky flex flex-col gap-2 p-4 text-sm border-r border-indigo-100 top-12">
             <>
@@ -80,7 +77,7 @@ const SidebarAllLinks = () => {
               </>
             )}
           </div>
-          <div className="  flex items-center px-10  pt-40 font-semibold hover:text-indigo-900 hover:border hover:rounded-full">
+          <div className="text-center pt-96  ">
             <LoginAndLogout />
           </div>
         </aside>

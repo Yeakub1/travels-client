@@ -58,7 +58,7 @@ const TravelPostCard = ({ data, refetch }: any) => {
         </p>
       </div>
 
-      <div className="p-4 border-t  flex mt-2 md:flex lg:flex  xl:flex  2xl:flex gap-10  items-center">
+      <div className="p-4 border-t ">
         <div className=" w-full">
           {" "}
           <Link
@@ -68,15 +68,7 @@ const TravelPostCard = ({ data, refetch }: any) => {
             Edit
           </Link>
         </div>
-        <div className=" w-full">
-          <button
-            onClick={deleteHandler}
-            className="align-middle block
-              w-full select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-red-600 text-white shadow-md shadow-red-900/10 hover:shadow-lg hover:shadow-red-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-          >
-            Delete
-          </button>
-        </div>
+       
       </div>
     </div>
   );

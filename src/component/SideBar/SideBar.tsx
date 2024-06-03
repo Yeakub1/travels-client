@@ -11,7 +11,7 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            Open drawer
+            Open
           </label>
         </div>
         <div className="drawer-side ">
