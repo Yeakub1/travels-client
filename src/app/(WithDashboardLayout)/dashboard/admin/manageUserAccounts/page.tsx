@@ -5,10 +5,8 @@ import {
   useUpdateUserStatusMutation,
 } from "@/Redux/api/UsersManage/usersManageApi";
 import Loading from "@/component/Loading/Loading";
-
 import Table from "@/component/Table/Table";
 import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
-import React from "react";
 import { toast } from "sonner";
 
 const ManageUserAccounts = () => {
@@ -72,7 +70,6 @@ const ManageUserAccounts = () => {
     }
   };
 
-  console.log(data?.data, "d");
   return (
     <div>
       {data?.data?.length > 0 ? (

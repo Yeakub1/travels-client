@@ -27,8 +27,6 @@ const Filter = () => {
   const formatEndDate = dateHelper(endDate as Date);
   const { page }: any = useAppSelector((e) => e.trip);
 
-  console.log(page, "ccc");
-
   type MyObjectType = {
     limit: number | string;
     page: number | string;

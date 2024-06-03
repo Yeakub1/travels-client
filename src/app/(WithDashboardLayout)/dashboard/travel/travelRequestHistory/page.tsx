@@ -6,8 +6,6 @@ import Loading from "@/component/Loading/Loading";
 import Table from "@/component/Table/Table";
 import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
 
-import React from "react";
-
 const TravelRequestHistory = () => {
   type Trip = {
     destination: string;
@@ -39,11 +37,7 @@ const TravelRequestHistory = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className=" h-screen flex justify-center items-center">
-        <Loading />
-      </div>
-    );
+    return <Loading />;
   }
   if (error?.data?.message === "Your id is blocked") {
     isBlockHelper(error?.data?.message);

@@ -9,12 +9,12 @@ import {
   getUserInfo,
   removeFromLocalStorage,
 } from "@/Services/Action/auth.services";
-import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
-import multipleImageHelper from "@/helper/imageHelper/multipleImageHelper";
-import { jwtDecoratedHelper } from "@/helper/jwtHelper/jwtHelper";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
+import { jwtDecoratedHelper } from "@/helper/jwtHelper/jwtHelper";
+import multipleImageHelper from "@/helper/imageHelper/multipleImageHelper";
 
 const Profile = () => {
   const { data, refetch, error }: any = useGetProfileQuery("", {
@@ -36,9 +36,7 @@ const Profile = () => {
   const [email, setEmail] = useState("");
   const [photo, setPhoto] = useState([]);
   const [modal, setModal] = useState(false);
-
   const [bio, setBio] = useState("");
-  console.log(data, "d");
 
   useEffect(() => {
     setId(data?.data?.id || "");
@@ -66,18 +64,14 @@ const Profile = () => {
         const { email }: any = jwtDecoratedHelper(token || "");
 
         if (email !== updateData?.data?.email) {
-          console.log(email, updateData?.data?.email);
           removeFromLocalStorage();
           setTimeout(() => {
             router.refresh();
             toast.success("Please login agin ");
           }, 2000);
         }
-
-        console.log(updateData, "l");
       }
     } catch (error: any) {
-      console.log(error);
       toast.error(error?.data.message);
     }
   };

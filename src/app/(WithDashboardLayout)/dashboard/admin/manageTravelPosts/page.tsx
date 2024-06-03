@@ -10,6 +10,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import Loading from "@/component/Loading/Loading";
 import { useGetProfileQuery } from "@/Redux/api/profile/profileApi";
 import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
+import Link from "next/link";
 
 const ManageTravelPosts = () => {
   const { error }: any = useGetProfileQuery("");
@@ -47,9 +48,6 @@ const ManageTravelPosts = () => {
     });
   };
 
-  const handleEdit = (data: string) => { 
-    console.log(data)
-  }
 
   return (
     <div className="">
@@ -91,12 +89,12 @@ const ManageTravelPosts = () => {
                     <td>{travel?.startDate}</td>
                     <td>{travel?.endDate}</td>
                     <td>
-                      <button
+                      <Link
+                        href={`/dashboard/travel/travelPosts/travelPostEdit/${travel?.id}`}
                         className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
-                        onClick={() => handleEdit(travel.id)}
                       >
-                        edit
-                      </button>
+                        Edit
+                      </Link>
                     </td>
                     <td>
                       <button

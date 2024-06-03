@@ -1,16 +1,8 @@
-import React from "react";
-
 import Link from "next/link";
-import { toast } from "sonner";
-import { useDeleteTripMutation } from "@/Redux/api/Trip/tripApi";
-import { useRouter } from "next/navigation";
 
-const TravelPostCard = ({ data, refetch }: any) => {
-  const [deleteFunction] = useDeleteTripMutation();
-  const router = useRouter();
+const TravelPostCard = ({ data }: any) => {
   const {
     id,
-    userId,
     destination,
     startDate,
     endDate,
@@ -46,7 +38,6 @@ const TravelPostCard = ({ data, refetch }: any) => {
 
       <div className="p-4 border-t ">
         <div className=" w-full">
-       
           <Link
             href={`/dashboard/travel/travelPosts/travelPostEdit/${id}`}
             className="bg-[#09867E] hover:bg-[#09867E] btn text-white"

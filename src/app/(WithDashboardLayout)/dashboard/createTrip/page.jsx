@@ -39,7 +39,6 @@ const CreateTrip = () => {
     const location = e?.target?.location?.value;
     const itinerary = e?.target?.itinerary?.value;
     const description = e?.target?.description?.value;
-
     const images = await multipleImageHelper(photos);
 
     if (images?.length < 1) {
@@ -63,15 +62,11 @@ const CreateTrip = () => {
       location,
       itinerary,
       description,
-
       photos: images,
       endDate,
       startDate,
     };
-
-    console.log(info, "info");
     const res = await createFunction(info);
-    console.log(res?.error?.data?.message, res);
 
     if (res?.data?.success === true) {
       toast.success(res.data.message);
@@ -81,7 +76,6 @@ const CreateTrip = () => {
       toast.success(res.data.message);
       serLoading(false);
     }
-    console.log(res);
     if (res?.error?.data?.message === "Your id is blocked") {
       removeFromLocalStorage();
       toast.error("Your id is blocked");
@@ -120,7 +114,7 @@ const CreateTrip = () => {
             <p> Start date</p>
             <input
               type="date"
-              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
+              className="input input-bordered input-md w-full max-w-xs my-3"
               required
               onChange={(date) => setStartDate(date.target.value)}
             />
@@ -129,7 +123,7 @@ const CreateTrip = () => {
             <p> End date</p>
             <input
               type="date"
-              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
+              className="input input-bordered input-md w-full max-w-xs my-3"
               required
               onChange={(date) => setEndDate(date.target.value)}
             />
@@ -140,7 +134,7 @@ const CreateTrip = () => {
             <select
               type="text"
               placeholder="travel type"
-              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
+              className="input input-bordered input-md w-full max-w-xs my-3"
               name="travelType"
               required
             >
@@ -156,7 +150,7 @@ const CreateTrip = () => {
             <input
               type="text"
               placeholder="location"
-              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+              className="input input-bordered input-md w-full max-w-xs my-3 "
               name="location"
               required
             />
@@ -164,7 +158,6 @@ const CreateTrip = () => {
 
           <div className="flex justify-center items-center gap-4">
             <p>Image</p>
-
             <input
               onChange={(e) => setPhotos(Array.from(e.target.files))}
               type="file"
@@ -177,7 +170,7 @@ const CreateTrip = () => {
             <input
               type="text"
               placeholder="itinerary"
-              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+              className="input input-bordered input-md w-full max-w-xs my-3 "
               name="itinerary"
               required
             />
@@ -188,15 +181,15 @@ const CreateTrip = () => {
             <input
               type="text"
               placeholder="description"
-              className="input input-bordered input-md w-full  max-w-xs my-3 text-gray-500 "
+              className="input input-bordered input-md w-full  max-w-xs my-3 "
               name="description"
               required
             />
           </div>
         </section>
 
-        <section className=" text-center mt-10">
-          <button className=" bg-[#09867E] hover:bg-[#09867E] font-semibold text-white btn w-1/2">
+        <section className="text-center mt-10">
+          <button className="bg-[#09867E] hover:bg-[#09867E] font-semibold text-white btn w-1/2">
             Submit
           </button>
         </section>

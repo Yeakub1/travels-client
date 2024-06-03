@@ -3,16 +3,9 @@ import Link from "next/link";
 import React from "react";
 import LoginAndLogout from "../LoginAndLogout/LoginAndLogout";
 import { useGetProfileQuery } from "@/Redux/api/profile/profileApi";
-import Loading from "../Loading/Loading";
 
 const SidebarAllLinks = () => {
-  const { data, isLoading } = useGetProfileQuery("");
-
-  if (isLoading) {
-    return (
-        <Loading />
-    );
-  }
+  const { data} = useGetProfileQuery("");
 
   return (
     <div>
