@@ -1,10 +1,10 @@
 "use client";
 
-import { useRegisterMutation } from "@/Redux/api/Auth/authApi";
 import Link from "next/link";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { FieldValues, useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { useRegisterMutation } from "@/Redux/api/Auth/authApi";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
