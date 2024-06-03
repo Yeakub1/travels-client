@@ -25,11 +25,13 @@ const ManageUserAccounts = () => {
     "Change Role",
   ];
 
-  if (isLoading) {
-    <div>
-      <Loading />
-    </div>;
-  }
+   if (isLoading) {
+     return (
+       <div className=" h-screen flex justify-center items-center">
+         <Loading />
+       </div>
+     );
+   }
   if (error?.data?.message === "Your id is blocked") {
     isBlockHelper(error?.data?.message);
   }

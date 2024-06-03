@@ -16,9 +16,9 @@ const SidebarAllLinks = () => {
 
   return (
     <div>
-      <ul className="menu p-4 w-52 md:w-80 lg:w-80  xl:w-80 2xl:w-80 bg-base-200 text-base-content">
+      <ul className="menu  w-72 bg-[#09867E] text-white">
         <aside className="py-4 w-full md:block">
-          <div className="sticky flex flex-col gap-2 p-4 text-sm border-r border-indigo-100 top-12">
+          <div className="sticky flex flex-col gap-2 p-4 text-sm">
             <>
               <Link href="/" className="pl-3 mb-4 text-2xl font-semibold ">
                 Travel-Buddy
@@ -28,26 +28,26 @@ const SidebarAllLinks = () => {
               <>
                 <Link
                   href="/dashboard/createTrip"
-                  className="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full"
+                  className="flex items-center px-3 py-2.5 font-semibold"
                 >
                   Create Trip
                 </Link>
                 <Link
                   href="/dashboard/travel/travelRequestHistory"
-                  className="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full"
+                  className="flex items-center px-3 py-2.5 font-semibold"
                 >
                   {" "}
                   Travel Request History
                 </Link>
                 <Link
                   href="/dashboard/travel/travelPosts"
-                  className="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full"
+                  className="flex items-center px-3 py-2.5 font-semibold"
                 >
                   Travel Posts
                 </Link>
                 <Link
                   href="/dashboard/profile"
-                  className="flex items-center px-3 py-2.5 font-bold hover:text-indigo-900 hover:border rounded-full"
+                  className="flex items-center px-3 py-2.5 font-bold"
                 >
                   Profile
                 </Link>
@@ -58,19 +58,19 @@ const SidebarAllLinks = () => {
               <>
                 <Link
                   href="/dashboard/admin/manageTravelPosts"
-                  className="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full"
+                  className="flex items-center px-3 py-2.5 font-semibold"
                 >
                   Manage Travel Posts
                 </Link>
                 <Link
                   href="/dashboard/admin/manageUserAccounts"
-                  className="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full"
+                  className="flex items-center px-3 py-2.5 font-semibold"
                 >
                   Manage User Accounts
                 </Link>
                 <Link
                   href="/dashboard/profile"
-                  className="flex items-center px-3 py-2.5 font-bold hover:text-indigo-900 hover:border rounded-full"
+                  className="flex items-center px-3 py-2.5 font-bold"
                 >
                   Profile
                 </Link>

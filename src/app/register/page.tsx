@@ -96,7 +96,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded"
+            className="bg-[#09867E] font-medium p-2 md:p-4 text-white uppercase w-full rounded"
           >
             Register
           </button>

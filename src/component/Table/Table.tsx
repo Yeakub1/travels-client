@@ -1,5 +1,5 @@
-import TravelRequestHistoryTableList from "./TravelRequestHistoryTableList";
 import UserTableList from "./UserTableList";
+import TravelRequestHistoryTableList from "./TravelRequestHistoryTableList";
 
 const Table = ({
   statusHandler,
@@ -10,12 +10,20 @@ const Table = ({
 }: any) => {
   console.log(data, "table");
   return (
-    <section className="container mx-auto p-6 font-mono">
-      <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+    <section className="">
+      <div className="flex justify-center p-5 bg-[#09867E] text-white text-2xl font-semibold">
+        <h1> All User and Admin</h1>
+      </div>
+      <div className="w-full">
+        <div className="flex justify-between items-center px-10">
+          <h3 className="text-xl font-semibold my-4">
+            Total User: {data?.length}
+          </h3>
+        </div>
         <div className="w-full overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="text-md font-semibold tracking-wide text-left text-gray-100 bg-gray-700 uppercase border-b border-gray-600">
+              <tr className="text-md font-semibold text-left">
                 {headers?.map((a: string, index: number) => (
                   <th key={index} className="px-4 py-3">
                     {a}
@@ -24,7 +32,6 @@ const Table = ({
               </tr>
             </thead>
             <tbody>
-              {/* Sample data for rows. Replace with your actual data */}
               {data?.map((item: any) =>
                 condition === "userTable" ? (
                   <UserTableList

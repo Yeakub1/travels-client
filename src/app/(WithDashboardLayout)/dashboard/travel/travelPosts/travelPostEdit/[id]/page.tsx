@@ -51,23 +51,18 @@ const TravelPostEdit = ({ params }: any) => {
     };
 
     const res = await updateFunction({ id: id, data: info });
-
     if (res?.data?.success === true) {
       toast.success(res?.data?.message);
-
       refetch();
       serLoading(false);
     }
     if (res?.data?.success === false) {
       toast.success(res?.data?.message);
-
       serLoading(false);
     }
     if (res?.error?.data?.message === "Your id is blocked") {
       removeFromLocalStorage();
-
       toast.error("Your id is blocked");
-
       router.push("/login");
     }
 

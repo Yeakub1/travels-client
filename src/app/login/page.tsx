@@ -73,14 +73,14 @@ const Login = () => {
               placeholder="Password"
             />
           </div>
-          <button className="bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded">
+          <button className="bg-[#09867E] font-medium p-2 md:p-4 text-white uppercase w-full rounded">
             Login
           </button>
           <div className="mt-4">
             <p className="text-center text-sm text-gray-600">
               Don&#x27;t have an account yet?
               <Link
-                href="/registion"
+                href="/register"
                 className="font-semibold text-gray-800 hover:underline focus:text-gray-800 focus:outline-none ms-1 text-md"
               >
                 Register

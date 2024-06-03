@@ -47,6 +47,10 @@ const ManageTravelPosts = () => {
     });
   };
 
+  const handleEdit = (data: string) => { 
+    console.log(data)
+  }
+
   return (
     <div className="">
       <div className="flex justify-center p-5 bg-[#09867E] text-white text-2xl font-semibold">
@@ -67,6 +71,7 @@ const ManageTravelPosts = () => {
                 <th>Destination</th>
                 <th>StartDate</th>
                 <th>EndDate</th>
+                <th>Edit</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -85,6 +90,14 @@ const ManageTravelPosts = () => {
                     <td>{travel?.destination}</td>
                     <td>{travel?.startDate}</td>
                     <td>{travel?.endDate}</td>
+                    <td>
+                      <button
+                        className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
+                        onClick={() => handleEdit(travel.id)}
+                      >
+                        edit
+                      </button>
+                    </td>
                     <td>
                       <button
                         onClick={() => handleDeleteglass(travel?.id)}

@@ -121,14 +121,14 @@ const Profile = () => {
                 />
                 <div className="flex flex-col space-y-5 sm:ml-8">
                   <button
-                    className="py-3.5 px-7 text-base font-medium text-white bg-[#202142] rounded-lg border border-indigo-200 hover:bg-indigo-900"
+                    className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
                     onClick={() => setModal(true)}
                   >
                     Change picture
                   </button>
                   <Link
                     href={"/dashboard/profile/changePassword"}
-                    className="py-3.5 px-7 text-base font-medium text-white  bg-gray-500  rounded-lg border  hover:bg-gray-700 "
+                    className="bg-[#09867E] hover:bg-[#09867E] btn text-white "
                   >
                     Change Password
                   </Link>
@@ -204,10 +204,10 @@ const Profile = () => {
                     onChange={(e) => setBio(e.target.value)}
                   ></textarea>
                 </div>
-                <div className="flex justify-end">
+                <div className="flex justify-start">
                   <button
                     type="submit"
-                    className="text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5"
+                    className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
                   >
                     Save
                   </button>
@@ -218,32 +218,27 @@ const Profile = () => {
         </div>
       </section>
 
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-
-      <dialog className={`${modal ? "block" : "hidden"}   bg-gray-900 p-10`}>
-        <div className=" bg-gray-900">
-          <div className="bg-gray-900">
-            <div className=" ">
-              <div className=" flex justify-center">
-                <input
-                  onChange={(e) => setPhoto(Array.from(e.target.files as any))}
-                  type="file"
-                  className="file-input w-full max-w-xs my-3  block "
-                />
-              </div>
-              <div className=" flex justify-between mt-10">
-                <button
-                  onClick={() => setModal(false)}
-                  className="btn text-white bg-red-500"
-                >
-                  Close
-                </button>
-
-                <button onClick={PhotoHandler} className="btn ">
-                  Submit
-                </button>
-              </div>
-            </div>
+      <dialog
+        className={`${modal ? "block" : "hidden"} bg-gray-200 p-7 rounded-md`}
+      >
+        <div className=" ">
+          <div className=" flex justify-center">
+            <input
+              onChange={(e) => setPhoto(Array.from(e.target.files as any))}
+              type="file"
+              className="file-input w-full max-w-xs my-3  block "
+            />
+          </div>
+          <div className=" flex justify-between mt-10">
+            <button
+              onClick={() => setModal(false)}
+              className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
+            >
+              Close
+            </button>
+            <button onClick={PhotoHandler} className="btn ">
+              Submit
+            </button>
           </div>
         </div>
       </dialog>

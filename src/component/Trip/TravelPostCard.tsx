@@ -18,20 +18,6 @@ const TravelPostCard = ({ data, refetch }: any) => {
     photos,
     travelType,
   } = data;
-  const deleteHandler = async () => {
-    try {
-      const res = await deleteFunction(id).unwrap();
-      if (res?.success === true) {
-        toast.success(res.message);
-        refetch();
-      }
-      if (res?.success === false) {
-        toast.success(res.message);
-      }
-    } catch (error: any) {
-      toast.success(error?.data?.message);
-    }
-  };
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg my-20">
       <figure>
@@ -60,15 +46,14 @@ const TravelPostCard = ({ data, refetch }: any) => {
 
       <div className="p-4 border-t ">
         <div className=" w-full">
-          {" "}
+       
           <Link
             href={`/dashboard/travel/travelPosts/travelPostEdit/${id}`}
-            className="align-middle w-full block select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none   disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-red-900/10 hover:shadow-lg hover:shadow-red-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+            className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
           >
             Edit
           </Link>
         </div>
-       
       </div>
     </div>
   );

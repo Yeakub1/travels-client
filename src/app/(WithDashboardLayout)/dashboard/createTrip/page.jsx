@@ -1,14 +1,13 @@
 "use client";
 
+import { useState } from "react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import Loading from "@/component/Loading/Loading";
 import { useCreateTripMutation } from "@/Redux/api/Trip/tripApi";
 import { useGetProfileQuery } from "@/Redux/api/profile/profileApi";
 import { removeFromLocalStorage } from "@/Services/Action/auth.services";
-import Loading from "@/component/Loading/Loading";
-import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
 import multipleImageHelper from "@/helper/imageHelper/multipleImageHelper";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { toast } from "sonner";
 
 const CreateTrip = () => {
   const toggle = true;
@@ -17,19 +16,12 @@ const CreateTrip = () => {
   const { data, isLoading } = useGetProfileQuery("");
   const [endDate, setEndDate] = useState("");
   const [startDate, setStartDate] = useState("");
-
   const [loading, serLoading] = useState(false);
-
   const [photos, setPhotos] = useState([]);
-
   const [createFunction] = useCreateTripMutation();
 
   if (isLoading) {
-    return (
-      <div className="  h-screen flex justify-center items-center">
-        <Loading />
-      </div>
-    );
+    return <Loading />;
   }
 
   const handler = async (e) => {
@@ -79,25 +71,20 @@ const CreateTrip = () => {
 
     console.log(info, "info");
     const res = await createFunction(info);
-
     console.log(res?.error?.data?.message, res);
 
     if (res?.data?.success === true) {
       toast.success(res.data.message);
-
       serLoading(false);
     }
     if (res?.data?.success === false) {
       toast.success(res.data.message);
-
       serLoading(false);
     }
     console.log(res);
     if (res?.error?.data?.message === "Your id is blocked") {
       removeFromLocalStorage();
-
       toast.error("Your id is blocked");
-
       router.push("/login");
     }
     if (res?.error?.data?.message === "Unauthorized Access") {
@@ -107,31 +94,30 @@ const CreateTrip = () => {
   };
 
   return (
-    <div className=" w-full pb-60   ">
-      <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
-        Create Trip
-      </h2>
-
+    <div className="">
+      <div className="flex justify-center p-5 bg-[#09867E] text-white text-2xl font-semibold">
+        <h1> Create Trip</h1>
+      </div>
       <form
         onSubmit={handler}
-        className={`w-[90%] md:w-[90%] lg:w-[90%] xl:w-[95%] 2xl:w-[90%] mx-auto  mt-10  ${
-          toggle && " border-[1px] "
+        className={`w-[90%] mx-auto mt-10  ${
+          toggle && " border-[3px] shadow-lg"
         }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg `}
       >
-        <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500] "> Destination</p>
+        <section className="grid md:grid-cols-2">
+          <div className="flex justify-center items-center gap-4">
+            <p>Destination</p>
             <input
               type="text"
               placeholder="destination"
-              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+              className="input input-bordered input-md w-full max-w-xs my-3 "
               name="destination"
               required
             />
           </div>
 
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500] "> Start date</p>
+          <div className="flex justify-center items-center gap-4">
+            <p> Start date</p>
             <input
               type="date"
               className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
@@ -139,8 +125,8 @@ const CreateTrip = () => {
               onChange={(date) => setStartDate(date.target.value)}
             />
           </div>
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500] "> End date</p>
+          <div className="flex justify-center items-center gap-4">
+            <p> End date</p>
             <input
               type="date"
               className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
@@ -149,8 +135,8 @@ const CreateTrip = () => {
             />
           </div>
 
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500] "> Travel type</p>
+          <div className="flex justify-center items-center gap-4">
+            <p> Travel type</p>
             <select
               type="text"
               placeholder="travel type"
@@ -158,15 +144,15 @@ const CreateTrip = () => {
               name="travelType"
               required
             >
-              <option></option>
+              <option>select</option>
               <option>Adventure</option>
               <option>Leisure</option>
               <option>Business</option>
             </select>
           </div>
 
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500] "> Location</p>
+          <div className="flex justify-center items-center gap-4">
+            <p> Location</p>
             <input
               type="text"
               placeholder="location"
@@ -175,54 +161,47 @@ const CreateTrip = () => {
               required
             />
           </div>
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500] "> Itinerary</p>
-            <textarea
+
+          <div className="flex justify-center items-center gap-4">
+            <p>Image</p>
+
+            <input
+              onChange={(e) => setPhotos(Array.from(e.target.files))}
+              type="file"
+              className="file-input input-bordered w-full max-w-xs my-3"
+              multiple
+            />
+          </div>
+          <div className="flex justify-center items-center gap-4">
+            <p> Itinerary</p>
+            <input
               type="text"
               placeholder="itinerary"
-              className="input input-bordered input-md w-full h-[100px] max-w-xs my-3 text-gray-500 "
+              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
               name="itinerary"
               required
             />
           </div>
 
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500] "> Description</p>
-            <textarea
+          <div className="flex justify-center items-center gap-4">
+            <p>Description</p>
+            <input
               type="text"
-              placeholder=" description"
-              className="input input-bordered input-md w-full h-[100px] max-w-xs my-3 text-gray-500 "
+              placeholder="description"
+              className="input input-bordered input-md w-full  max-w-xs my-3 text-gray-500 "
               name="description"
               required
-            />
-          </div>
-
-          <div className=" text-center my-5">
-            <p className=" text-[18px] font-[500]   ">
-              {" "}
-              Image {photos?.length}
-            </p>
-
-            <input
-              onChange={(e) => setPhotos(Array.from(e.target.files))}
-              type="file"
-              className="file-input w-full max-w-xs my-3"
-              multiple // Add the "multiple" attribute here
             />
           </div>
         </section>
 
         <section className=" text-center mt-10">
-          {loading ? (
-            <Loading />
-          ) : (
-            <button className="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">
-              Submit
-            </button>
-          )}
+          <button className=" bg-[#09867E] hover:bg-[#09867E] font-semibold text-white btn w-1/2">
+            Submit
+          </button>
         </section>
       </form>
-    </div>
+    </div> 
   );
 };
 

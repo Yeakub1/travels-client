@@ -3,7 +3,6 @@
 import { useGetTravelBuddyRequestQuery } from "@/Redux/api/TravelBuddyRequestApi/travelBuddyRequestApi";
 import Container from "@/component/Container/Container";
 import Loading from "@/component/Loading/Loading";
-import NotFound from "@/component/NotFound/NotFound";
 import Table from "@/component/Table/Table";
 import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
 
@@ -60,12 +59,7 @@ const TravelRequestHistory = () => {
           condition={"travelRequestHistory"}
         />
       ) : (
-        <NotFound
-          title={""}
-          semiTitle=" Data is not available."
-          paragraph=" Sorry, we can't find that data. "
-          button={false}
-        />
+        <p>no data</p>
       )}
     </Container>
   );
