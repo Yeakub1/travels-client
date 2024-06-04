@@ -1,4 +1,3 @@
-import Link from "next/link";
 import LinkButton from "../Button/LinkButton";
 
 const TripCard = ({ data }: any) => {
@@ -21,22 +20,22 @@ const TripCard = ({ data }: any) => {
 
       <div className=" space-y-1 px-10 py-5">
         <p className="text-gray-500">
-          <span className=" font-medium text-black">Destination:</span>{" "}
+          <span className=" font-medium">Destination:</span>{" "}
           {destination}{" "}
         </p>
         <p className="text-gray-500">
-          <span className=" font-medium text-black">startDate:</span>{" "}
+          <span className=" font-medium">startDate:</span>{" "}
           {startDate}{" "}
         </p>
         <p className="text-gray-500">
-          <span className=" font-medium text-black">endDate:</span> {endDate}{" "}
+          <span className=" font-medium">endDate:</span> {endDate}{" "}
         </p>
         <p className="text-gray-500">
-          <span className=" font-medium text-black">Travel type:</span>{" "}
+          <span className=" font-medium">Travel type:</span>{" "}
           {travelType}{" "}
         </p>
         <p className="text-gray-500">
-          <span className=" font-medium text-black">Description:</span>{" "}
+          <span className=" font-medium">Description:</span>{" "}
           {description}{" "}
         </p>
       </div>

@@ -9,12 +9,12 @@ const SidebarAllLinks = () => {
 
   return (
     <div>
-      <ul className="menu  w-72 bg-[#09867E] text-white">
+      <ul className="menu w-72 bg-[#09867E] text-white">
         <aside className="py-4 w-full md:block">
           <div className="sticky flex flex-col gap-2 p-4 text-sm">
             <>
-              <Link href="/" className="pl-3 mb-4 text-2xl font-semibold ">
-                Travel-Buddy
+              <Link href="/" className="pl-3 mb-4 text-2xl font-semibold cursor-pointer">
+                Travel Buddy
               </Link>
             </>
             {data?.data?.role === "User" && (

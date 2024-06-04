@@ -1,5 +1,3 @@
-import React from "react";
-
 const UserTableList = ({ item, statusHandler, roleHandler }: any) => {
   return (
     <tr key={item?.id} >
@@ -10,11 +8,11 @@ const UserTableList = ({ item, statusHandler, roleHandler }: any) => {
           alt=""
         />
       </td>
-      <td className="px-4 py-3 text-sm ">{item?.name}</td>
-      <td className="px-4 py-3 text-sm ">{item?.email}</td>
-      <td className="px-4 py-3 text-sm ">{item?.userStatus}</td>
-      <td className="px-4 py-3 text-sm ">{item?.role}</td>
-      <td className="px-4 py-3 text-sm">
+      <td className="px-4 py-3">{item?.name}</td>
+      <td className="px-4 py-3">{item?.email}</td>
+      <td className="px-4 py-3">{item?.userStatus}</td>
+      <td className="px-4 py-3">{item?.role}</td>
+      <td className="px-4 py-3">
         <span
           onClick={(e: any) => statusHandler(e.target.innerText, item?.id)}
           className="bg-[#09867E] hover:bg-[#09867E] btn text-white"

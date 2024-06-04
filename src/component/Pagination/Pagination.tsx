@@ -1,7 +1,7 @@
-import { useGetTripQuery } from "@/Redux/api/Trip/tripApi";
-import { setPage, setTripData } from "@/Redux/api/Trip/tripSlice";
-import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import React, { useEffect, useState } from "react";
+import { useGetTripQuery } from "@/Redux/api/Trip/tripApi";
+import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
+import { setPage, setTripData } from "@/Redux/api/Trip/tripSlice";
 
 const Pagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -60,7 +60,7 @@ const Pagination = () => {
   return (
     <div className="flex items-center gap-4">
       <button
-        className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-full select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        className="flex items-center gap-2 px-6 py-3 text-xs font-bold text-center uppercase"
         type="button"
         disabled={currentPage === 1}
         onClick={handlePrevious}
@@ -84,8 +84,7 @@ const Pagination = () => {
       </button>
       <div className="flex items-center gap-2">{buttons}</div>
       <button
-        className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-full select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        type="button"
+        className="flex items-center gap-2 px-6 py-3 text-xs font-bold text-center uppercase"
         disabled={currentPage === totalPages}
         onClick={handleNext}
       >

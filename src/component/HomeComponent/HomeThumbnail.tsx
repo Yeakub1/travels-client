@@ -1,5 +1,3 @@
-// import homeThumbnail from "../../../public/home/HomeThumbnail.jpg";
-
 import HomeSearching from "./HomeSearching";
 
 const HomeThumbnail = () => {

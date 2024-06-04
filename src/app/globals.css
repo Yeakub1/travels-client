@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.login-bg-img {
-  background-image: url(../../public/login/pexels-catiamatos-1072179.jpg);
 
-  background-size: cover; /* Use 'cover' if you want the image to fill the height completely */
-  background-position: center;
-  background-repeat: no-repeat;
-}
 .homeThumbnail-bg-img {
   background-image: url(../../public/home/HomeThumbnail.jpg);
 
