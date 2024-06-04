@@ -8,7 +8,6 @@ const TravelPostCard = ({ data }: any) => {
     endDate,
     description,
     photos,
-    travelType,
   } = data;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg my-20">

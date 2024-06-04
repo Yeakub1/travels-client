@@ -95,7 +95,7 @@ const CreateTrip = () => {
       <form
         onSubmit={handler}
         className={`w-[90%] mx-auto mt-10  ${
-          toggle && " border-[3px] shadow-lg"
+          toggle && "border-[3px] shadow-lg"
         }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg `}
       >
         <section className="grid md:grid-cols-2">
