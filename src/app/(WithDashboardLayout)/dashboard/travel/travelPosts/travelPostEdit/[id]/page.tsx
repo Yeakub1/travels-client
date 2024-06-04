@@ -4,8 +4,6 @@ import {
   useUpdateTripMutation,
 } from "@/Redux/api/Trip/tripApi";
 import { removeFromLocalStorage } from "@/Services/Action/auth.services";
-import Loading from "@/component/Loading/Loading";
-import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -65,97 +63,86 @@ const TravelPostEdit = ({ params }: any) => {
       toast.error("Your id is blocked");
       router.push("/login");
     }
-
-    console.log(res?.error?.data?.message, "res");
   };
   return (
     <div>
       <div>
-        <div className=" w-full pb-60  ">
-          <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
-            Create Trip
-          </h2>
-
+        <div>
+          <div className="flex justify-center p-5 bg-[#09867E] text-white text-2xl font-semibold">
+            <h1>Edit Trip</h1>
+          </div>
           <form
             onSubmit={handler}
-            className={`w-[90%] md:w-[90%] lg:w-[90%] xl:w-[95%] 2xl:w-[90%] mx-auto  mt-10  ${
-              toggle && " border-[1px] "
-            }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg `}
-          >
-            <div className=" flex justify-center">
-              <img
-                className=" w-[200px] h-[200px]  block"
-                src={data?.data?.photos[0]}
-                alt=""
-              />
-            </div>
-            <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
-              <div className=" text-center my-5">
-                <p className=" text-[18px] font-[500] "> Destination</p>
+            className={`w-[90%] mx-auto  mt-10  ${
+              toggle && "border-[3px] shadow-lg"
+            }  p-4 rounded-lg `} >
+            <section className=" grid md:grid-cols-2 gap-5">
+              <div className="flex justify-center items-center gap-4">
+                <p> Destination</p>
                 <input
                   type="text"
                   placeholder="destination"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3"
                   onChange={(date) => setDestination(date.target.value)}
                   value={destination}
                 />
               </div>
 
-              <div className=" text-center my-5">
-                <p className=" text-[18px] font-[500] "> Start date</p>
+              <div className="flex justify-center items-center gap-4">
+                <p> Start date</p>
                 <input
                   type="date"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
+                  className="input input-bordered input-md w-full max-w-xs my-3"
                   required
                   onChange={(date) => setStartDate(date.target.value)}
                   value={startDate}
                 />
               </div>
-              <div className=" text-center my-5">
-                <p className=" text-[18px] font-[500] "> End date</p>
+              <div className="flex justify-center items-center gap-4">
+                <p> End date</p>
                 <input
                   type="date"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
+                  className="input input-bordered input-md w-full max-w-xs my-3"
                   onChange={(date) => setEndDate(date.target.value)}
                   value={endDate}
                 />
               </div>
 
-              <div className=" text-center my-5">
-                <p className=" text-[18px] font-[500] "> Travel type</p>
+              <div className="flex justify-center items-center gap-4">
+                <p> Travel type</p>
                 <input
                   type="text"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500"
+                  className="input input-bordered input-md w-full max-w-xs my-3"
                   onChange={(date) => setTravelType(date.target.value)}
                   value={travelType}
                 />
               </div>
 
-              <div className=" text-center my-5">
-                <p className=" text-[18px] font-[500] "> Location</p>
+              <div className="flex justify-center items-center gap-4">
+                <p> Location</p>
                 <input
                   type="text"
                   placeholder="location"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3"
                   onChange={(date) => setLocation(date.target.value)}
                   value={location}
                 />
               </div>
-              <div className=" text-center my-5">
-                <p className=" text-[18px] font-[500] "> Itinerary</p>
-                <textarea
+              <div className="flex justify-center items-center gap-4">
+                <p> Itinerary</p>
+                <input
                   placeholder="itinerary"
-                  className="input input-bordered input-md w-full h-[100px] max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3"
                   onChange={(date) => setItinerary(date.target.value)}
                   value={itinerary}
                 />
               </div>
 
-              <div className=" text-center my-5">
-                <p className=" text-[18px] font-[500] "> Description</p>
-                <textarea
+              <div className="flex justify-center items-center gap-4">
+                <p> Description</p>
+                <input
                   placeholder=" description"
-                  className="input input-bordered input-md w-full h-[100px] max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3"
                   onChange={(date) => setDescription(date.target.value)}
                   value={description}
                 />
@@ -163,13 +150,9 @@ const TravelPostEdit = ({ params }: any) => {
             </section>
 
             <section className=" text-center mt-10">
-              {loading ? (
-                <Loading />
-              ) : (
-                <button className="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">
-                  Submit
-                </button>
-              )}
+              <button className="w-1/2 btn bg-[#09867E] hover:bg-[#09867E] mx-auto font-semibold text-white ">
+                Submit
+              </button>
             </section>
           </form>
         </div>

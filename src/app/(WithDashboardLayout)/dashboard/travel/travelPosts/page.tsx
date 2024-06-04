@@ -1,13 +1,13 @@
 "use client";
+
+
 import { useDeleteTripMutation, useGetPostedTripQuery } from "@/Redux/api/Trip/tripApi";
-import Container from "@/component/Container/Container";
-import Loading from "@/component/Loading/Loading";
-import TravelPostCard from "@/component/Trip/TravelPostCard";
-import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
 import Link from "next/link";
-import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "sonner";
 import Swal from "sweetalert2";
+import Loading from "@/component/Loading/Loading";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
 
 const TravelPosts = () => {
     const [deleteFunction] = useDeleteTripMutation();
@@ -84,7 +84,7 @@ const TravelPosts = () => {
                         href={`/dashboard/travel/travelPosts/travelPostEdit/${travel?.id}`}
                         className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
                       >
-                        Edit
+                        <FaEdit />
                       </Link>
                     </td>
                     <td>

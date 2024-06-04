@@ -4,13 +4,13 @@ import {
   useDeleteTripMutation,
   useGetTripForAdminQuery,
 } from "@/Redux/api/Trip/tripApi";
+import Link from "next/link";
 import Swal from "sweetalert2";
 import { toast } from "sonner";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import Loading from "@/component/Loading/Loading";
 import { useGetProfileQuery } from "@/Redux/api/profile/profileApi";
 import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
-import Link from "next/link";
 
 const ManageTravelPosts = () => {
   const { error }: any = useGetProfileQuery("");
@@ -93,7 +93,7 @@ const ManageTravelPosts = () => {
                         href={`/dashboard/travel/travelPosts/travelPostEdit/${travel?.id}`}
                         className="bg-[#09867E] hover:bg-[#09867E] btn text-white"
                       >
-                        Edit
+                        <FaEdit />
                       </Link>
                     </td>
                     <td>
