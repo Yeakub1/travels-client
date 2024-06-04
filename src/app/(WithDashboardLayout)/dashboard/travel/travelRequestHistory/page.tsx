@@ -1,36 +1,10 @@
 "use client";
 
 import { useGetTravelBuddyRequestQuery } from "@/Redux/api/TravelBuddyRequestApi/travelBuddyRequestApi";
-import Container from "@/component/Container/Container";
 import Loading from "@/component/Loading/Loading";
-import Table from "@/component/Table/Table";
 import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
 
 const TravelRequestHistory = () => {
-  type Trip = {
-    destination: string;
-    startDate: string;
-    endDate: string;
-    location: string;
-    travelType: string;
-  };
-
-  type TravelBuddyRequest = {
-    id: string;
-    userId: string;
-    status: string;
-    trip: Trip;
-  };
-
-  const headers = [
-    "Destination",
-    "Status",
-    "Start Date",
-    "End Date",
-    "location",
-    "Travel Type",
-  ];
-
   const { data, isLoading, error }: any = useGetTravelBuddyRequestQuery("", {
     pollingInterval: 0,
     refetchOnMountOrArgChange: true,
@@ -43,19 +17,50 @@ const TravelRequestHistory = () => {
     isBlockHelper(error?.data?.message);
   }
 
-  console.log(data?.data, "d");
   return (
-    <Container>
-      {data?.data?.length > 0 ? (
-        <Table
-          data={data?.data}
-          headers={headers}
-          condition={"travelRequestHistory"}
-        />
-      ) : (
-        <p>no data</p>
-      )}
-    </Container>
+    <div className="">
+      <div className="flex justify-center p-5 bg-[#09867E] text-white text-2xl font-semibold">
+        <h1> All Request History</h1>
+      </div>
+      <div className="w-full">
+        <div className="flex justify-between items-center px-10">
+          <h3 className="text-xl font-semibold my-4">
+            Total booking: {data?.data?.length}
+          </h3>
+        </div>
+        <div className="overflow-auto">
+          <table className="table table-zebra w-full">
+            {/* head */}
+            <thead>
+              <tr className="text-lg">
+                <th>Destination</th>
+                <th>location</th>
+                <th>travelType</th>
+                <th>StartDate</th>
+                <th>EndDate</th>
+                <th>status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data && data.data.length > 0 ? (
+                data?.data.map((travel: any) => (
+                  <tr key={travel?.id}>
+                    <td>{travel?.trip?.destination}</td>
+                    <td>{travel?.trip?.location}</td>
+                    <td>{travel?.trip?.travelType}</td>
+                    <td>{travel?.trip?.startDate}</td>
+                    <td>{travel?.trip?.endDate}</td>
+                    <td>{travel?.status}</td>
+                  </tr>
+                ))
+              ) : (
+                <p>No traveles Request</p>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   );
 };
 

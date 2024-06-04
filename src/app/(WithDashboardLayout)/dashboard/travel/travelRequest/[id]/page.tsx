@@ -18,9 +18,7 @@ const TravelRequest = ({ params }: any) => {
 
   if (isLoading) {
     return (
-      <div className="  h-screen flex justify-center items-center">
-        <Loading />
-      </div>
+        <Loading />    
     );
   }
 

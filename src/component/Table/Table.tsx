@@ -17,7 +17,7 @@ const Table = ({
       <div className="w-full">
         <div className="flex justify-between items-center px-10">
           <h3 className="text-xl font-semibold my-4">
-            Total User: {data?.length}
+            Total Users: {data?.length}
           </h3>
         </div>
         <div className="w-full overflow-x-auto">
