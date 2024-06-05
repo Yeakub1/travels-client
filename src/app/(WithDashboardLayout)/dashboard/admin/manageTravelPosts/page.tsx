@@ -24,11 +24,7 @@ const ManageTravelPosts = () => {
     refetchOnMountOrArgChange: true,
   });
   if (isLoading) {
-    return (
-      <div className=" h-screen flex justify-center items-center">
-        <Loading />
-      </div>
-    );
+    return <Loading />;
   }
 
   const handleDeleteglass = async (id: string) => {
@@ -47,7 +43,6 @@ const ManageTravelPosts = () => {
       }
     });
   };
-
 
   return (
     <div className="">

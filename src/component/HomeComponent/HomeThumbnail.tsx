@@ -1,37 +1,35 @@
-import HomeSearching from "./HomeSearching";
+import Link from "next/link";
 
 const HomeThumbnail = () => {
   return (
-    <div>
-      <div className="relative bg-gradient-to-r  from-purple-600 to-blue-600 h-[500px] md:h-[500px] lg:h-[500px] xl:h-[500px] 2xl:h-[600px] text-white overflow-hidden ">
-        <div className="absolute inset-0">
-          <img
-            src="/home/HomeThumbnail.jpg"
-            alt="Background Image"
-            className="object-cover object-center w-full h-full"
-          />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-        </div>
-
-        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-          <h1 className="text-5xl font-bold leading-tight mb-4">
-            Find Your Perfect Travel Buddy
-          </h1>
-          <p className="text-lg text-gray-300 mb-8">
-            Discover amazing features and services that await you.
+    <div className="max-w-7xl m-auto">
+      <div className="grid md:grid-cols-2 items-center">
+        <div className="">
+          <p className="text-xl text-[#09867E]">
+            BEST DESITNATIONS AROUND THE WORLD
           </p>
-          <a
-            href="/dashboard/createTrip"
-            className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-          >
-            Share Your Trip
-          </a>
-
-          <HomeSearching />
+          <h1 className="text-6xl font-semibold my-9">
+            Travel, enjoy and live a new and full life.
+          </h1>
+          <p className="">
+            Built Wicket longer admire do barton vantity itself do in it.
+            Preferred to sportsmen it engrossed listening. Park gate sell they
+            west hard for the.
+          </p>
+          <Link href="/trip">
+            <button className="bg-[#09867E] hover:bg-[#09867E] font-semibold text-white btn mt-10">
+              Share Your Trip
+            </button>
+          </Link>
+        </div>
+        <div className="">
+          <img
+            src="https://jadoo-tour.vercel.app/assets/hero-img-ca36e7b0.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
   );
 };
-
 export default HomeThumbnail;

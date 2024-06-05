@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Container from "../Container/Container";
 
 const TripRequestForm = ({ email, name, handler }: any) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -10,21 +9,21 @@ const TripRequestForm = ({ email, name, handler }: any) => {
 
   const toggle = true;
   return (
-    <Container>
-      <div className="grid gap-10  grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 my-10">
+    <div className="max-w-5xl m-auto">
+      <div className="grid gap-10 md:grid-cols-2 my-10">
         <div>
-          <h1 className=" text-[25px]  font-semibold text-center mb-5 mt-20">
+          <h1 className="text-2xl font-semibold text-center mb-5 mt-20">
             Terms and conditions
           </h1>
 
-          <p className="text-gray-500 my-2">Welcome to Travel Buddy!</p>
-          <p className="text-gray-500 my-5">
+          <p className="my-2">Welcome to Travel Buddy!</p>
+          <p className="my-5">
             Travel Buddy Website Functionality and Terms of Service Travel Buddy
             sounds like a great platform for connecting travelers and managing
             bookings! Here's a breakdown of the functionalities you mentioned
             and a draft for your terms and conditions:
           </p>
-          <p className="text-gray-500 my-5">
+          <p className="my-5">
             Functionalities: Travel Listings: Users can add, edit, and delete
             travel listings. This could include details like destination, dates,
             activities, accommodation options, and pricing. Booking Management:
@@ -38,15 +37,12 @@ const TripRequestForm = ({ email, name, handler }: any) => {
             <input
               id="default-checkbox"
               type="checkbox"
-              checked={isChecked} 
+              checked={isChecked}
               onChange={handleCheckboxChange}
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded "
+              className="w-4 h-4 text-[#09867E] rounded "
             />
-            <label
-              htmlFor="default-checkbox"
-              className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Default checkbox
+            <label htmlFor="default-checkbox" className="ms-2 text-sm">
+              I agree to the terms and conditions
             </label>
           </div>
         </div>
@@ -76,7 +72,7 @@ const TripRequestForm = ({ email, name, handler }: any) => {
                 <input
                   type="text"
                   placeholder="email"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3 "
                   name="email"
                   value={email}
                   required
@@ -87,7 +83,7 @@ const TripRequestForm = ({ email, name, handler }: any) => {
                 <input
                   type="text"
                   placeholder="Number"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3 "
                   name="number"
                   required
                 />
@@ -98,7 +94,7 @@ const TripRequestForm = ({ email, name, handler }: any) => {
                 <input
                   type="text"
                   placeholder="country"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3 "
                   name="country"
                   required
                 />
@@ -109,7 +105,7 @@ const TripRequestForm = ({ email, name, handler }: any) => {
                 <input
                   type="text"
                   placeholder="city"
-                  className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+                  className="input input-bordered input-md w-full max-w-xs my-3 "
                   name="city"
                   required
                 />
@@ -128,7 +124,7 @@ const TripRequestForm = ({ email, name, handler }: any) => {
           </form>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

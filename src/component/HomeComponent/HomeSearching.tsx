@@ -26,17 +26,16 @@ const HomeSearching = () => {
     dispatch(setTripData(data));
   }, [data]);
 
-  console.log(data, "data");
   return (
     <div>
       <section className="my-10 ">
-        {/* searchTram start */}
+
         <div className="pt-2 relative mx-auto text-gray-600   2xl:px-0">
           <input
             className="border-2  w-full  border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
             type="search"
-            name="search"
-            placeholder="Search"
+            name="search..."
+            placeholder="Search you trip"
             onChange={(e) => SetSearchTerm(e.target.value)}
           />
           <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
@@ -51,7 +50,7 @@ const HomeSearching = () => {
             </svg>
           </button>
         </div>
-        {/* searchTram end */}
+
       </section>
     </div>
   );

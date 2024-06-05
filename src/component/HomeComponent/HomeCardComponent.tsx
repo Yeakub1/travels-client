@@ -3,12 +3,21 @@
 import TripCard from "../Trip/TripCard";
 import { useAppSelector } from "@/Redux/hooks";
 import LinkButton from "../Button/LinkButton";
+import HomeSearching from "./HomeSearching";
+import Loading from "../Loading/Loading";
 
 const HomeCardComponent = () => {
-  const { tripData }: any = useAppSelector((e) => e.trip);
+  const { tripData, isLoading }: any = useAppSelector((e) => e.trip);
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
-    <div>
-      <div className="grid md:gap-10 md:grid-cols-2">
+    <div className="max-w-7xl m-auto my-20">
+      <div className="w-1/3 m-auto pb-10">
+        <HomeSearching />
+      </div>
+      <div className="grid md:grid-cols-3 md:gap-5 items-center justify-center">
         {tripData?.data?.slice(0, 10)?.map((a: any) => (
           <TripCard key={a?.id} data={a} />
         ))}

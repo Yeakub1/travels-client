@@ -6,7 +6,7 @@ import Link from "next/link";
 const NavbarList = () => {
   const token = getUserInfo();
   return (
-    <ul className="flex flex-col font-medium p-4  mt-4  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row ">
+    <ul className="flex flex-col font-medium p-4 md:space-x-8 rtl:space-x-reverse md:flex-row ">
       <li>
         <Link href="/">Home</Link>
       </li>

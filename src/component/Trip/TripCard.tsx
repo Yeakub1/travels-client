@@ -18,19 +18,19 @@ const TripCard = ({ data }: any) => {
 
       <div className="p-5">
         <p>
-          <span>Destination:</span> {destination}{" "}
+          <span>Destination:</span> {destination}
         </p>
         <p>
-          <span >startDate:</span> {startDate}{" "}
+          <span >startDate:</span> {startDate}
         </p>
         <p>
-          <span>endDate:</span> {endDate}{" "}
+          <span>endDate:</span> {endDate}
         </p>
         <p>
-          <span>Travel type:</span> {travelType}{" "}
+          <span>Travel type:</span> {travelType}
         </p>
         <p>
-          <span>Description:</span> {description}{" "}
+          <span>Description:</span> {description}
         </p>
       </div>
 
