@@ -19,13 +19,11 @@ const Login = () => {
       email: datas.email,
       password: datas.password,
     };
-    console.log(userInfo);
 
     const data = await loginMutation(userInfo).unwrap();
     if (data && data.success === true) {
       toast.success(data?.message);
 
-      console.log(data);
       storeUserInfo({ accessToken: data?.data?.token });
       toast.success("Logged in", { id: toastId, duration: 2000 });
       router.push("/");

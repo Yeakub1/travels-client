@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SliderCard from "./SliderCard";
-import { useGetProfileQuery } from "@/Redux/api/profile/profileApi";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { isLoggedIn } from "@/Services/Action/auth.services";
@@ -13,7 +12,6 @@ const DetailCard = ({ data }: any) => {
        router.push("/login");
      }
    }, [router]);
-  const { data: userData } = useGetProfileQuery("");
 
   const {
     photos,
@@ -23,7 +21,6 @@ const DetailCard = ({ data }: any) => {
     startDate,
     endDate,
     id,
-    userId,
     travelType,
   } = data?.data || {};
 
@@ -39,42 +36,38 @@ const DetailCard = ({ data }: any) => {
           <div className="card-body">
             <div className=" space-y-5  py-5">
               <p className="text-gray-500">
-                <span className=" font-medium text-black">Travel type:</span>{" "}
-                {travelType}{" "}
+                <span className=" font-medium text-black">Travel type:</span>
+                {travelType}
               </p>
               <p className="text-gray-500">
-                <span className=" font-medium text-black">Location:</span>{" "}
-                {location}{" "}
+                <span className=" font-medium text-black">Location:</span>
+                {location}
               </p>
               <p className="text-gray-500">
-                <span className=" font-medium text-black">Start Date:</span>{" "}
-                {startDate}{" "}
+                <span className=" font-medium text-black">Start Date:</span>
+                {startDate}
               </p>
               <p className="text-gray-500">
-                <span className=" font-medium text-black">End Date:</span>{" "}
-                {endDate}{" "}
+                <span className=" font-medium text-black">End Date:</span>
+                {endDate}
               </p>
               <p className="text-gray-500">
-                <span className=" font-medium text-black">Itinerary:</span>{" "}
-                {itinerary}{" "}
+                <span className=" font-medium text-black">Itinerary:</span>
+                {itinerary}
               </p>
               <p className="text-gray-500">
-                <span className=" font-medium text-black">Description:</span>{" "}
-                {description}{" "}
+                <span className=" font-medium text-black">Description:</span>
+                {description}
               </p>
             </div>
 
             <div className="card-actions justify-end my-2 inline md:inline   ">
-              {userData?.data?.id === userId ? (
-                <h1 className=" text-red-500">You are not accessible</h1>
-              ) : (
                 <Link
                   href={`/dashboard/travel/travelRequest/${id}`}
                   className="bg-[#09867E] hover:bg-[#09867E] font-semibold text-white btn w-1/2"
                 >
                   Travel Request
-                </Link>
-              )}
+                </Link>      
             </div>
           </div>
         </div>

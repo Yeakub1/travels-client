@@ -67,7 +67,6 @@ const Filter = () => {
           <div className="rounded-xl border border-gray-200  bg-white p-6 shadow-lg">
             <form className="">
               <section className="my-10">
-                {/* searchTram start */}
                 <div className="pt-2 relative mx-auto">
                   <input
                     className="border-2 w-full border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm"
@@ -91,11 +90,8 @@ const Filter = () => {
                     </svg>
                   </button>
                 </div>
-                {/* searchTram end */}
               </section>
-
               <section className="grid gap-6 md:grid-cols-2">
-                {/* Destination start */}
                 <div className="flex flex-col">
                   <label className="text-sm">Destination</label>
 
@@ -112,8 +108,6 @@ const Filter = () => {
                     ))}
                   </select>
                 </div>
-                {/* Destination end */}
-                {/* TravelType start */}
                 <div className="flex flex-col">
                   <label htmlFor="manufacturer" className="text-sm">
                     Travel Type
@@ -133,9 +127,6 @@ const Filter = () => {
                     <option>Business</option>
                   </select>
                 </div>
-                {/* TravelType  end */}
-
-                {/* sortBy start */}
                 <div className="flex flex-col">
                   <label htmlFor="manufacturer" className="text-sm">
                     SortBy
@@ -154,9 +145,6 @@ const Filter = () => {
                     <option>endDate</option>
                   </select>
                 </div>
-                {/* sortBy end */}
-
-                {/* sortOrder start */}
                 <div className="flex flex-col">
                   <label htmlFor="manufacturer" className="text-sm">
                     SortOrder
@@ -174,8 +162,6 @@ const Filter = () => {
                     <option>asc</option>
                   </select>
                 </div>
-                {/* sortOrder end */}
-                {/* Limit start */}
                 <div className="flex flex-col">
                   <label htmlFor="manufacturer" className="text-sm">
                     Limit
@@ -201,7 +187,6 @@ const Filter = () => {
                     <option>10</option>
                   </select>
                 </div>
-                {/* Limit end */}
               </section>
               <div className="mt-6 flex justify-center ">
                 <button className="bg-[#09867E] hover:bg-[#09867E] btn text-white w-full">

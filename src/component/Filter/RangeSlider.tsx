@@ -5,7 +5,6 @@ const RangeSlider = ({ setMinBudget, setMaxBudget, topBudget }: any) => {
   const [maxPrice, setMaxPrice] = useState<number>(topBudget);
   const min = 100;
   const max = topBudget;
-  console.log(max, max);
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.min(Number(e.target.value), maxPrice - 100);

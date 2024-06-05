@@ -8,7 +8,7 @@ const Table = ({
   headers,
   condition,
 }: any) => {
-  console.log(data, "table");
+
   return (
     <section className="">
       <div className="flex justify-center p-5 bg-[#09867E] text-white text-2xl font-semibold">

@@ -19,7 +19,6 @@ const Register = () => {
         email: data.email,
         password: data.password,
       };
-      console.log(userInfo);
 
       const res: any = await RegisterMutation(userInfo);
 

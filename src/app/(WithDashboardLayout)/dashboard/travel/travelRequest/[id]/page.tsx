@@ -1,14 +1,11 @@
 "use client";
 
+import { toast } from "sonner";
 import { useCreateTravelBuddyRequestMutation } from "@/Redux/api/TravelBuddyRequestApi/travelBuddyRequestApi";
 import { useGetProfileQuery } from "@/Redux/api/profile/profileApi";
-
 import Loading from "@/component/Loading/Loading";
 import TripRequestForm from "@/component/Trip/TripRequestForm";
 import isBlockHelper from "@/helper/BlockHelper/isBlockHelper";
-
-import React from "react";
-import { toast } from "sonner";
 
 const TravelRequest = ({ params }: any) => {
   const { id } = params;
@@ -17,16 +14,12 @@ const TravelRequest = ({ params }: any) => {
   const { data, isLoading, error }: any = useGetProfileQuery("");
 
   if (isLoading) {
-    return (
-        <Loading />    
-    );
+    return <Loading />;
   }
 
   if (error?.data?.message === "Your id is blocked") {
     isBlockHelper(error?.data?.message);
   }
-
-  console.log(error, "dd");
 
   const handler = async (e: any) => {
     e.preventDefault();
@@ -48,8 +41,6 @@ const TravelRequest = ({ params }: any) => {
     };
     try {
       const res = await addFunction(info);
-      console.log(res, "res");
-
       if (res?.data?.success === true) {
         toast.success(res.data.message);
       }

@@ -138,7 +138,9 @@ const CreateTrip = () => {
               name="travelType"
               required
             >
-              <option>select</option>
+              <option disabled selected>
+                select
+              </option>
               <option>Adventure</option>
               <option>Leisure</option>
               <option>Business</option>
@@ -194,7 +196,7 @@ const CreateTrip = () => {
           </button>
         </section>
       </form>
-    </div> 
+    </div>
   );
 };
 

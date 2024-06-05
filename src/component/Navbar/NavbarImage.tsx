@@ -11,8 +11,6 @@ const NavbarImage = () => {
     return "";
   }
 
-  console.log();
-
   return (
     <div>
       {token && (

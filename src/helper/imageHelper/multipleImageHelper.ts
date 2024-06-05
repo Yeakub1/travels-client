@@ -1,5 +1,5 @@
 const multipleImageHelper = async (photos: File[]) => {
-  const image_hosting_url = `https://api.imgbb.com/1/upload?key=${"8460cd1a14bf680b3bf68fe6e9950c8d"}`;
+  const image_hosting_url = `https://api.imgbb.com/1/upload?key=${"03806a3d45dcae5720f2698264de0a6d"}`;
   const uploadedImageUrls = [];
 
   for (const photo of photos) {
@@ -23,8 +23,6 @@ const multipleImageHelper = async (photos: File[]) => {
       console.error("Error uploading image:", error);
     }
   }
-
-  console.log(uploadedImageUrls, "dadad");
   return uploadedImageUrls;
 };
 

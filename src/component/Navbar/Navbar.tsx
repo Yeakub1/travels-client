@@ -43,9 +43,9 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <NavbarList />
           </div>
-          <div className="navbar-end gap-10">
+          <div className="navbar-end gap-10 ">
             <section className="avatar">
-              <div className="w-12 rounded-full">
+              <div className="w-12 h-12 rounded-full">
                 <Link href="/dashboard/profile">
                   <NavbarImage />
                 </Link>
